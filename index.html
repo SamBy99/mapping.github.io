@@ -11,6 +11,46 @@
       position: relative;
     }
 
+
+//------------
+
+ body {
+      background-image: url('path-to-your-image.jpg');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* CSS styles for the picture area, buttons, and pop-up menus */
+    .picture-area {
+      width: 800px;
+      height: 600px;
+      position: relative;
+    }
+
+    .button {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: #008CBA;
+      color: white;
+      cursor: pointer;
+    }
+
+    .popup {
+      position: absolute;
+      top: 10px;
+      left: 60px;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid gray;
+      display: none;
+    }
+
+ //------------------
+
+    
     .button {
       position: absolute;
       width: 40px;
@@ -32,6 +72,15 @@
   </style>
 </head>
 <body>
+
+
+
+
+
+
+
+
+  
   <div class="picture-area">
     <div class="button" style="top: 100px; left: 200px;" onclick="showPopup('Button 1')">1</div>
     <div class="button" style="top: 300px; left: 500px;" onclick="showPopup('Button 2')">2</div>
@@ -89,5 +138,11 @@
       }
     }
   </script>
+
+
+
+
+
+  
 </body>
 </html>
