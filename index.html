@@ -1,1 +1,94 @@
-HelloCanSat
+//HelloCanSat
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS styles for the picture area, buttons, and pop-up menus */
+    .picture-area {
+      width: 800px;
+      height: 600px;
+      background-image: url('your-image-url.jpg');
+      background-size: cover;
+      position: relative;
+    }
+
+    .button {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: #008CBA;
+      color: white;
+      cursor: pointer;
+    }
+
+    .popup {
+      position: absolute;
+      top: 10px;
+      left: 60px;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid gray;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="picture-area">
+    <div class="button" style="top: 100px; left: 200px;" onclick="showPopup('Button 1')">1</div>
+    <div class="button" style="top: 300px; left: 500px;" onclick="showPopup('Button 2')">2</div>
+    <div class="button" style="top: 400px; left: 100px;" onclick="showPopup('Button 3')">3</div>
+    <!-- Add more buttons as needed -->
+
+    <!-- Add additional buttons randomly -->
+    <script>
+      // Function to generate a random position within the picture area
+      function getRandomPosition() {
+        var pictureArea = document.querySelector('.picture-area');
+        var maxX = pictureArea.offsetWidth - 50;
+        var maxY = pictureArea.offsetHeight - 50;
+        var randomX = Math.floor(Math.random() * maxX);
+        var randomY = Math.floor(Math.random() * maxY);
+        return { x: randomX, y: randomY };
+      }
+
+      // Function to create and position a button with unique properties
+      function createButton(index) {
+        var position = getRandomPosition();
+        var button = document.createElement('div');
+        button.className = 'button';
+        button.style.top = position.y + 'px';
+        button.style.left = position.x + 'px';
+        button.onclick = function() {
+          showPopup('Button ' + index);
+        };
+        return button;
+      }
+
+      // Create and append additional random buttons
+      for (var i = 4; i <= 23; i++) {
+        var button = createButton(i);
+        document.querySelector('.picture-area').appendChild(button);
+      }
+    </script>
+  </div>
+
+  <div id="popupContainer" class="popup"></div>
+
+  <script>
+    // JavaScript code to handle button clicks and show pop-up menus
+    function showPopup(content) {
+      var popupContainer = document.getElementById('popupContainer');
+      var currentContent = popupContainer.innerHTML;
+      
+      if (currentContent === content) {
+        // If the clicked button matches the current content, close the pop-up
+        popupContainer.style.display = 'none';
+      } else {
+        // Otherwise, update the pop-up content and display it
+        popupContainer.innerHTML = content;
+        popupContainer.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
